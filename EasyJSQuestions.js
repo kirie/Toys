@@ -63,7 +63,7 @@ function removeDups (arr) {
   })
 }
 // [1,2,3,4,5]
-/** O(n2) **/
+/** O(n^2) **/
 
 function removeDups2 (arr) {
   var myobj = {}
@@ -103,45 +103,106 @@ function removeDups2 (arr) {
 
 function swapnum (x, y) {
   // (1 , 3)
-
   // x = -2
   x = x - y
-
   // y = 1
   y = x + y
-
   // x = 1 - (-2) or 3
   x = y - x
-
   return '(' + x + ',' + y + ')'
 }
 
 // Reverse a string in JavaScript?
 
 function reverse (string) {
-	return string.split('').reverse().join('')
+  return string.split('').reverse().join('')
 }
 
 // How would you reverse words in a sentence?
 
+function reversewords (string) {
+  return string.split(' ').reverse().join('').split('').reverse().join('')
+}
+
 // Reverse words in place?
 
 // Find the first non repeating char in a string?
+function nonrepeatchar (str) {
+  var myobj = {}
+  for (var i = 0; i < str.length; i++) {
+    if (myobj[str[i]]) {
+      myobj[str[i]]++
+    }
+    else {
+      myobj[str[i]] = 1
+    }
+  }
+  for (var i = 0; i < str.length; i++) {
+    if (myobj[str[i]] === 1) {
+      return str[i]
+    }
+  }
+}
 
 // Remove duplicate characters from a sting?
+function removeDuplicate (str) {
+  var myobj = {}
+  var myarr = []
+  for (var i = 0; i < str.length; i++) {
+    if (myobj[str[i]]) {
+      myobj[str[i]]++
+    }
+    else {
+      myobj[str[i]] = 1
+    }
+  }
+  for (var i = 0; i < str.length; i++) {
+    if (myobj[str[i]] === 1) {
+      myarr.push(str[i])
+    }
+  }
+  return myarr
+}
 
 // How will you verify a word as palindrome?
+function builtinPali (string) {
+  if (string === string.split('').reverse().join('')) {
+    return true
+  }
+  return false
+}
 
 // Generate random between 5 to 7 by using defined function.
+function randomZeroto5 () {
+  return Math.random() * 4 + 1
+}
+
+function one2seven () {
+  return (randomZeroto5() / 5) * 7
+}
 
 // Find missing number from unsorted array of integers.
+function missingNum (arr) {
+  // +1 for missing number
+  var n = arr.length + 1
+  var sum = 0
+  var expect = (n * (n + 1)) / 2
+  for (var i = 0; i < arr.length; i++) {
+    sum += arr[i]
+  }
+  return expect - sum
+}
 
 // Get two numbers that equal to a given number?
 
+
 // Find the largest sum of any two elements?
+
 
 // Total number of zeros from 1 upto n?
 
+
 // Check whether a given string is a substring of bigger string
+
 
 // Get permutaitons of a string
