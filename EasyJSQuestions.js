@@ -79,7 +79,42 @@ function removeDups2 (arr) {
 
 // merge two sorted array?
 
+// wrong wip
+
+// function mergetwosort (arr1, arr2) {
+//   var result = []
+//   var temp = []
+//   while (!(arr1.length === 0) && !(arr2.length === 0)) {
+//     var x = arr1.pop()
+//     var y = arr2.pop()
+//     if (x > y) {
+//       temp.push(y)
+//       temp.push(x)
+//     }
+//     else {
+//       temp.push(x)
+//       temp.push(y)
+//     }
+//     result = result.concat(temp)
+//   }
+// }
+
 // Swap two numbers without using a temp variable?
+
+function swapnum (x, y) {
+  // (1 , 3)
+
+  // x = -2
+  x = x - y
+
+  // y = 1
+  y = x + y
+
+  // x = 1 - (-2) or 3
+  x = y - x
+
+  return '(' + x + ',' + y + ')'
+}
 
 // Reverse a string in JavaScript?
 
