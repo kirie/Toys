@@ -46,12 +46,38 @@ fibonacci(6) // 8
 
 // Find the greatest common divisor of two numbers?
 
+function gcd (x, y) {
+  while (y !== 0) {
+    var z = x % y
+    x = y
+    y = z
+  }
+  return x
+}
 
 // Remove duplicate members from an array?
 
+function removeDups (arr) {
+  return arr.filter(function (a, b) {
+    return arr.indexOf(a) === b
+  })
+}
+// [1,2,3,4,5]
+/** O(n2) **/
+
+function removeDups2 (arr) {
+  var myobj = {}
+  var myarr = []
+  for (var i = 0; i < arr.length; i++) {
+    if (!myobj[arr[i]]) {
+      myobj[arr[i]] = true
+      myarr.push(arr[i])
+    }
+  }
+  return myarr
+}
 
 // merge two sorted array?
-
 
 // Swap two numbers without using a temp variable?
 
