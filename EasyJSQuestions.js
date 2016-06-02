@@ -79,25 +79,9 @@ function removeDups2 (arr) {
 
 // merge two sorted array?
 
-// wrong wip
-
-// function mergetwosort (arr1, arr2) {
-//   var result = []
-//   var temp = []
-//   while (!(arr1.length === 0) && !(arr2.length === 0)) {
-//     var x = arr1.pop()
-//     var y = arr2.pop()
-//     if (x > y) {
-//       temp.push(y)
-//       temp.push(x)
-//     }
-//     else {
-//       temp.push(x)
-//       temp.push(y)
-//     }
-//     result = result.concat(temp)
-//   }
-// }
+function merge2sorted (arr1, arr2) {
+  
+}
 
 // Swap two numbers without using a temp variable?
 
@@ -195,6 +179,16 @@ function missingNum (arr) {
 
 // Get two numbers that equal to a given number?
 
+function sum2 (arr, sum) {
+  for (var i = 0; i < arr.length - 1; i++) {
+    for (var j = i + 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === sum) {
+        return true
+      }
+    }
+  }
+  return false
+}
 
 // Find the largest sum of any two elements?
 
