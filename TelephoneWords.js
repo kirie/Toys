@@ -52,7 +52,7 @@ var telephoneWords = function (digitString) {
       }
     }
   }
-  // start at beginning size 0
+  // start at beginning position 0 of digitString
   recursion(0)
   return result
 }
