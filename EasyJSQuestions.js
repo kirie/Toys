@@ -200,3 +200,17 @@ function sum2 (arr, sum) {
 
 
 // Get permutaitons of a string
+function permutate (str) {
+  var results = {}
+  function recurse (build, options) {
+    if (build.length === str.length) {
+      results[build] = true
+    }
+    for (var i = 0; i < options.length; i++) {
+      var temp = build + options[i]
+      recurse(temp, options.slice(0, i) + options.slice(i + 1))
+    }
+  }
+  recurse('', str)
+  return results // as object, but can return as array too with another loop or changing the results data type
+}
