@@ -79,8 +79,23 @@ function removeDups2 (arr) {
 
 // merge two sorted array?
 
-function merge2sorted (arr1, arr2) {
-  
+function mergeSorted (a, b) {
+  var c = []
+  while (a.length && b.length) {
+    while (b[0] <= a[0]) {
+      c.push(b.shift())
+    }
+    while (a[0] <= b[0]) {
+      c.push(a.shift())
+    }
+  }
+  if (a.length) {
+    c.push(a)
+  }
+  else {
+    c.push(b)
+  }
+  return [].concat.apply([], c)
 }
 
 // Swap two numbers without using a temp variable?
