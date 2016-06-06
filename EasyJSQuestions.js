@@ -206,13 +206,27 @@ function sum2 (arr, sum) {
 }
 
 // Find the largest sum of any two elements?
-
-
+function large2 (arr) {
+  var big1 = arr[0]
+  var big2 = arr[1]
+  for (var i = 2; i < arr.length; i++) {
+    if (arr[i] > big1) {
+      big2 = big1
+      big1 = arr[i]
+    }
+    else if (arr[i] > big2) {
+      big2 = arr[i]
+    }
+  }
+  return big1 + big2
+}
 // Total number of zeros from 1 upto n?
-
 
 // Check whether a given string is a substring of bigger string
 
+function subcheck (string, sub){
+  return string.indexOf(sub) > -1
+}
 
 // Get permutaitons of a string
 function permutate (str) {
