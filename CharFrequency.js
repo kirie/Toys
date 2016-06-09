@@ -33,7 +33,7 @@ function characterFrequency (string) {
   for (var key in obj1) {
     result.push([key, obj1[key]])
   }
-  // use sort
+  // use sort method
   result.sort(function (a, b) {
     if (a[1] > b[1]) {
       // -1 = sort first before second
