@@ -1,5 +1,4 @@
 // Create a stack and then create a queue using 2 stacks
-// 
 
 const Stack = () => {
   let storage = []
@@ -18,19 +17,16 @@ const Stack = () => {
 }
 
 const Queue = () => {
+  // create two Stacks
   let inbox = new Stack()
   let outbox = new Stack()
-  this.enqueue = function(val){
+  
+  // push new elements to the inbox
+  this.enqueue = (val) => {
     inbox.push(val)
   }
-  this.dequeue = () => {  
-  if(!outbox.size()) {
-    while(inbox.size()) {
-      outbox.push(inbox.pop())
-    }
-  }
-  return outbox.pop()
-  }
+  // dequeue will check the outbox if it's empty then we push all our inbox items into the outbox
+  // and pop off the outbox and return it
   this.dequeue = () => {  
     if(!outbox.size()) {
       while(inbox.size()) {
@@ -39,3 +35,4 @@ const Queue = () => {
     }
     return outbox.pop()
   }
+}
