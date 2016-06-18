@@ -25,8 +25,8 @@ const Queue = () => {
   this.enqueue = (val) => {
     inbox.push(val)
   }
-  // dequeue will check the outbox if it's empty then we push all our inbox items into the outbox
-  // and pop off the outbox and return it
+  // dequeue will check the outbox. IF it's empty then we push all our inbox items into the outbox
+  // and pop off the outbox. We then return this popped off item.
   this.dequeue = () => {  
     if(!outbox.size()) {
       while(inbox.size()) {
