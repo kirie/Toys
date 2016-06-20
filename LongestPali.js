@@ -6,7 +6,7 @@
 const longestPali = (str) => {
   let longest = ''
   if (paliCheck(str)) {
-  	return true
+    return true
   }
   // loop through from the first character, and slice out that character
   for (let i = 0; i < str.length; i++) {
