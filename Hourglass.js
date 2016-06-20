@@ -23,8 +23,8 @@ const hourglass = (arr) => {
   let greatest
   // loop through from the left and only use the upper left position of a 3x3.  Therefore in a 6x6 we only need to see the 4x4.
   // From the upper left of a 3x3 we can calculate the hourglass shape
-  for(let i = 0; i < 4; i++) {
-    for(let j = 0; j < 4; j++) {
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 4; j++) {
       // sum the hourglass shape from the upper left corner
       sum = arr[i][j] + arr[i][j + 1] + arr[i][j + 2]
         + arr[i + 1][j + 1]
