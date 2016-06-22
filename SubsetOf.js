@@ -1,4 +1,4 @@
-// Make an an extension Array method that returns true if an array is a subset of another array
+// Write an extension method for Arrays that returns true if an array is a subset of another array
 
 // Example:
 // [13,4,5,5] is a subset of [5,2,4,13,4,5,5,9]
