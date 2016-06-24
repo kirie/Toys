@@ -15,3 +15,15 @@ const fibonacci = (n) => {
   }
   return addition
 }
+
+const fibonacciRecursive = (n) => {
+  if (n === 0) {
+    return 0
+  }
+  if (n <= 2){
+    return 1
+  }
+  else {
+    return fibonacciRecursive(n-1) + fibonacciRecursive(n-2)
+  }
+}
