@@ -2,8 +2,8 @@
 // 0 1 1 2 3 5 8 13...
 
 const fibonacci = (n) => {
-	if(n === 0) {
-		return 0
+  if(n === 0) {
+    return 0
 	}
   let x = 0
   let y = 1

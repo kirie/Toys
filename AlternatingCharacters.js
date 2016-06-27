@@ -12,11 +12,7 @@ function processData (input) {
     let count = 0
     let last = arr1[i][0]
       for (let j = 1; j < arr1[i].length; j++) {
-        if (last === arr1[i][j]) {
-          count++
-        }
-        else {
-          last = arr1[i][j]
+        last === arr1[i][j] ? count++ : last = arr1[i][j]
         }
       }
     console.log(count)
