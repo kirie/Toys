@@ -10,9 +10,11 @@ const shuffleDeck = (deck) => {
   let decklen = deck.length
   while (decklen) {
     let rando = Math.floor(Math.random() * deck.length)
-    result.push(deck[rando])
-    delete deck[rando]
-    decklen--
+    if (rando in deck) {
+      result.push(deck[rando])
+      delete deck[rando]
+      decklen--
+    }
   }
   return result
 }
