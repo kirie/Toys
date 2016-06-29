@@ -23,7 +23,6 @@ const x = [1, [3, [2, [2, [3]]]], 4, [3, 2, [4, 2]]]
 flatten(x)
 
 // 2.) Given a mixture of arrays and objects, test the values with a callback input and return the values
-
 const testArrObj = (input_collection, cb) => {
   let result = []
   const recurse = function (collection) {
