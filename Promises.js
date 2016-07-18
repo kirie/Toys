@@ -21,7 +21,7 @@ let part2 = (n) => {
 }
 
 part1(50)
-.then(x => part2(x))
+.then(x => {return part2(x)})
 .then(y => console.log(y))
 .catch((err) => {console.log(err)})
 
