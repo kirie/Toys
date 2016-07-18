@@ -51,3 +51,22 @@ const testArrObj = (input_collection, cb) => {
 
 const testline = [1, [3, [2, [2, [3]]]], {4: 4}, [3, 2, [4, 2]]]
 testArrObj(testline, (x) => { return x > 2 })
+
+
+// 3.) Given a mixture of nested arrays, strings, and integers, find the sum of all the integers.
+
+function arraySum(i) {
+  let result = []
+  function recurse (arr) {
+    arr.forEach((x) => {
+      if(typeof x === 'number'){
+        result.push(x)
+      }
+      else if(Array.isArray(x)){
+        recurse(x)
+      }
+    })
+  }
+  recurse(i)
+  return result.reduce((a,b)=> {return a+b})
+}
