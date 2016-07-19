@@ -1,0 +1,25 @@
+{
+  "name": "toys",
+  "version": "1.0.0",
+  "description": "Javascript Fun",
+  "main": "AlternatingCharacters.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^3.1.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-react": "^5.2.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kirie/Toys.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kirie/Toys/issues"
+  },
+  "homepage": "https://github.com/kirie/Toys#readme"
+}

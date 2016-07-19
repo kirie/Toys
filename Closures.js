@@ -1,3 +1,4 @@
+"use strict";
 /** Example 1.  Closure Loop Problem **/
 function buildList(list) {
     var result = [];
@@ -28,8 +29,8 @@ function outer () {
   }
 }
 
-let hello = outer()
+let hello = outer();
 
-hello()
-hello()
-console.log('Example 2: ' + hello()) // Output:  Example 2: 5
+hello();
+hello();
+console.log('Example 2: ' + hello()); // Output:  Example 2: 5

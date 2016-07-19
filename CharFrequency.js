@@ -13,8 +13,8 @@
 // output: [ ]
 
 function characterFrequency (string) {
-  var obj1 = {}
-  var result = []
+  var obj1 = {};
+  var result = [];
   if (string.length === 0) {
     return []
   }
