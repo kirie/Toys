@@ -19,3 +19,13 @@ function compose () {
     }, x);
   };
 }
+
+
+function pipe () {
+  var arg = Array.prototype.slice.call(arguments);
+  return function (x) {
+    return arg.reduce ( function (acc, cur) {
+      return cur(acc);
+    }, x);
+  };
+}
