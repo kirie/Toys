@@ -27,22 +27,3 @@ function powerSet (str) {
 
 let test = powerSet('obama');
 console.log(test);
-
-/** 
-[ '',
-  'a',
-  'ab',
-  'abm',
-  'abmo',
-  'abo',
-  'am',
-  'amo',
-  'ao',
-  'b',
-  'bm',
-  'bmo',
-  'bo',
-  'm',
-  'mo',
-  'o' ]  
-**/
