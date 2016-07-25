@@ -4,11 +4,10 @@
 
 function processData (input) {
   let arr = input.split('\n').splice(1);
-  arr.forEach((v) => {
-    let result = v.split('')
-      .map((v) => {return v.charCodeAt(0);})
-      .map((v,i,a) => {return Math.abs(v - a[i+1]);})
-      .filter((p) => {return !Number.isNaN(p);});
+  arr.forEach((estring) => {
+    let result = estring.split('')
+      .map((cv, i) => {return Math.abs(estring.charCodeAt(i) - estring.charCodeAt(i + 1));})
+      .filter((x) => {return !Number.isNaN(x);});
     console.log(result.join('') === result.reverse().join('') ? 'Funny' : 'Not Funny');
   });
 }
