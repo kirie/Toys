@@ -1,6 +1,8 @@
 // https://www.hackerrank.com/challenges/mars-exploration
 
-function main() {
+'use strict';
+
+function main () {
   var S = readLine();
   let strarr = S.split('');
   let options = ['S','O','S'];
