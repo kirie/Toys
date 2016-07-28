@@ -1,44 +1,75 @@
-let LinkedList = function (val) {
-  let list = {}
-  list.head = null
-  list.tail = null
+'use strict';
+let LinkedList = function () {
+  let list = {};
+  list.head = null;
+  list.tail = null;
 
   list.addToTail = function (val) {
-    let newNode = Node(val)
+    let newNode = Node(val);
     if (!list.head) {
-      list.head = newNode
+      list.head = newNode;
     }
     if (list.tail) {
-      list.tail.next = newNode
+      list.tail.next = newNode;
     }
-    list.tail = newNode
-  }
+    list.tail = newNode;
+  };
 
-  list.removeHead = function (val) {
+  list.removeHead = function () {
     if (!list.head) {
-      return null
+      return null;
     }
-    let temp = list.head
-    list.head = list.head.next
-    return temp
-  }
+    let temp = list.head;
+    list.head = list.head.next;
+    return temp;
+  };
 
   list.contains = function (val) {
-    let node = list.head
+    let node = list.head;
     while (node) {
       if (node.value === val) {
-        return true
+        return true;
       }
-      node = node.next
+      node = node.next;
     }
-    return false
-  }
-  return list
-}
+    return false;
+  };
+
+  list.reverse = function () {
+    let node = list.head;
+    let prev = null;
+    while (node) {
+      let temp = node.next;
+      node.next = prev;
+      prev = node;
+      node = temp;
+    }
+    return prev;
+  };
+
+  list.traverse = function (cb) {
+    let node = list.head;
+    while(node) {
+      cb(node);
+      node = node.next;
+    }
+  };
+
+  return list;
+};
 
 let Node = function (val) {
-  let node = {}
-  node.value = val
-  node.next = null
-  return node
-}
+  let node = {};
+  node.value = val;
+  node.next = null;
+  return node;
+};
+
+
+let x = new LinkedList();
+x.addToTail(5);
+x.addToTail(8);
+x.addToTail(9);
+x.traverse((y) => {console.log(y)});
+console.log('The reverse is :', x.reverse())
+
