@@ -1,4 +1,5 @@
 'use strict';
+
 let LinkedList = function () {
   let list = {};
   list.head = null;
@@ -15,6 +16,21 @@ let LinkedList = function () {
     list.tail = newNode;
   };
 
+  // single LL
+  list.removeTail = function () {
+    if(!list.tail){
+      return 'No Tail';
+    }
+    let node = list.head;
+    while (node && node.next) {
+      if(node.next.next === null) {
+        let temp = node.next;
+        node.next = null;
+        return temp;
+      }
+      node = node.next;
+    }
+  };
   list.removeHead = function () {
     if (!list.head) {
       return null;
@@ -54,7 +70,6 @@ let LinkedList = function () {
       node = node.next;
     }
   };
-
   return list;
 };
 
@@ -65,11 +80,9 @@ let Node = function (val) {
   return node;
 };
 
-
 let x = new LinkedList();
 x.addToTail(5);
-x.addToTail(8);
-x.addToTail(9);
-x.traverse((y) => {console.log(y)});
-console.log('The reverse is :', x.reverse())
-
+x.addToTail(4);
+x.traverse((y) => console.log(y.value));
+let z = x.removeTail();
+console.log(z);
