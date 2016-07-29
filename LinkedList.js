@@ -18,10 +18,10 @@ let LinkedList = function () {
 
   // single LL
   list.removeTail = function () {
+    let node = list.head;
     if(!list.tail){
       return 'No Tail';
     }
-    let node = list.head;
     while (node && node.next) {
       if(node.next.next === null) {
         let temp = node.next;
@@ -85,4 +85,3 @@ x.addToTail(5);
 x.addToTail(4);
 x.traverse((y) => console.log(y.value));
 let z = x.removeTail();
-console.log(z);
