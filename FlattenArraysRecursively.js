@@ -2,7 +2,7 @@
 
 // Example Input: [1,[3,[2,[2,[3]]],4,[3,2,[4,2]]]
 // Example Output: [1, 3, 2, 2, 3, 4, 3, 2, 4, 2]
-
+'use strict'
 const flatten = (arr) => {
   let result = []
   const recurse = function (arr) {
@@ -18,9 +18,6 @@ const flatten = (arr) => {
   recurse(arr)
   return result
 }
-
-const x = [1, [3, [2, [2, [3]]]], 4, [3, 2, [4, 2]]]
-flatten(x)
 
 // 2.) Given a mixture of arrays and objects, test the values with a callback input and return the values
 const testArrObj = (input_collection, cb) => {
@@ -51,7 +48,6 @@ const testArrObj = (input_collection, cb) => {
 
 const testline = [1, [3, [2, [2, [3]]]], {4: 4}, [3, 2, [4, 2]]]
 testArrObj(testline, (x) => { return x > 2 })
-
 
 // 3.) Given a mixture of nested arrays, strings, and integers, find the sum of all the integers.
 
