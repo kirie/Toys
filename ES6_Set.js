@@ -7,7 +7,6 @@ mySet.add('5');
 console.log(mySet.size); // 6
 console.log(mySet.has('5')); // true
 
-
 // 2. Set with a forEach
 mySet.forEach(function(value, key, theSet) {
   console.log('key: ' + key + ' value: ' + value);

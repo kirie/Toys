@@ -4,7 +4,7 @@
 function allAnagrams (str) {
   // create a results object to hold every anagram we create
   var results = {}
-
+  
   // create a recursive function taking in a string to build on and all the characters in the string (str)
   function recurse (build, options) {
     // this is our base case if our build reaches the same length.  3 characters in the test case of 'abc'
