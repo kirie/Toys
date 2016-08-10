@@ -1,13 +1,12 @@
 // https://leetcode.com/problems/permutations-ii/
-//
 // Find all unique permutations given an array of numbers.
 
 /**
  * @param {number[]} nums
  * @return {number[][]}
  */
+ 
 'use strict';
-
 let permuteUnique = function(nums) {
   let result = {};
   function recurse(build, options){
@@ -24,5 +23,5 @@ let permuteUnique = function(nums) {
   return Object.keys(result).map((x) => x.split(',').map(Number));
 };
 
-let test = permuteUnique([1,2,1,2]);
+let test = permuteUnique([1,1,2]);
 console.log(test);
