@@ -5,8 +5,10 @@
 
 function altSpaceComma (string) {
   let result = '';
-  for(let i = 0; i < string.length ;i++) {
+  string.forEach((v, i) => {
     result = result.concat(i % 2 ? string[i].concat(',') : string[i].concat(' '));
-  }
+  });
   return result;
 }
+
+console.log(altSpaceComma('abc'))
