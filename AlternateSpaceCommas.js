@@ -5,10 +5,10 @@
 
 function altSpaceComma (string) {
   let result = '';
-  string.forEach((v, i) => {
+  for(let i = 0; i < string.length; i++) {
     result = result.concat(i % 2 ? string[i].concat(',') : string[i].concat(' '));
-  });
+  };
   return result;
 }
 
-console.log(altSpaceComma('abc'))
+console.log(altSpaceComma('The quick brown fox jumped over the lazy dogs'));
