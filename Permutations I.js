@@ -20,4 +20,4 @@ function permute(arr) {
   return result;
 }
 
-permute([1,2,3]);
+console.log(permute([1,1,2]));
