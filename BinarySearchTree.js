@@ -1,3 +1,5 @@
+'use strict';
+
 let BST = function (val) {
   let BinaryTree = Object.create(BinarySearchTreeMethods)
   BinaryTree.value = val
@@ -51,3 +53,19 @@ BinarySearchTreeMethods.contains = function (target) {
     }
   }
 }
+
+BinarySearchTreeMethods.invert = function(root) {
+  if(root) {
+    let left = root.left ? root.left : null;
+    let right = root.right ? root.right : null;
+    root.left = root.invert(right);
+    root.right = root.invert(left);
+  }
+  return root;
+};
+
+
+let theBST = new BST(5);
+theBST.insert(4);
+theBST.insert(8);
+console.log(theBST.invert(theBST));
