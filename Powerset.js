@@ -10,7 +10,6 @@
 
 function powerSet (str) {
   let myobj = {};
-  let strbuild = '';
   let result = [''];
   str.split('').forEach((eachVal) => {myobj[eachVal] = true;});
   let resultArr = Object.keys(myobj).sort().join('');
@@ -21,7 +20,7 @@ function powerSet (str) {
       recurse(build + options[i], options.slice(i+1));
     }
   };
-  recurse(strbuild, resultArr);
+  recurse('', resultArr);
   return result.sort();
 }
 
