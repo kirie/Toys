@@ -45,3 +45,4 @@ let Queue = function () {
 };
 
 let myTree = new Tree('A');
+console.log(myTree)
