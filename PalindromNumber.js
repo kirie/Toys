@@ -16,7 +16,7 @@ function numPali (num) {
   while(num > 0) {
     // compare first and last digits
     if(Math.floor(num/value) === num%10){
-      // change values.
+      // change values
       num = Math.floor((num%value)/10);
       value = Math.floor(value/100);
     }
