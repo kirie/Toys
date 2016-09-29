@@ -11,7 +11,7 @@ const match = {
 
 function balance (string) {
 	//  create a variable to hold our stack
-  let result = []
+  let result = [];
   //  loop through the string and see if the char is an open or closed
   for (let i = 0; i < string.length; i++) {
     if (string[i] === '(' || string[i] === '[' || string[i] === '{') {

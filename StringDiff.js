@@ -1,28 +1,28 @@
 // 1. Given two strings, find total differences in characters.  No Duplicates
 
 const diff2 = (str1, str2) => {
-  let count = 0
-  let obj1 = {}
-  let obj2 = {}
-  str1.split('').map((x) => {obj1[x] = obj1[x] ? obj1[x]+=1 : 1})
-  str2.split('').map((x) => {obj2[x] = obj2[x] ? obj2[x]+=1 : 1})
+  let count = 0;
+  let obj1 = {};
+  let obj2 = {};
+  str1.split('').map((x) => {obj1[x] = obj1[x] ? obj1[x]+=1 : 1});
+  str2.split('').map((x) => {obj2[x] = obj2[x] ? obj2[x]+=1 : 1});
   for (let key in obj1) {
     if (key in obj2) {
       if (obj1[key] > 1 || obj2[key] > 1) {
         if (Math.abs(obj1[key] - obj2[key]) !== 0) {
-          count+= Math.abs(obj1[key] - obj2[key])
+          count+= Math.abs(obj1[key] - obj2[key]);
         }
         else {
-          count++
+          count++;
         }
       }
       else {
-        count++
+        count++;
       }
     }
   }
-  return 'Characters in common without duplicates: ' + count
-}
+  return 'Characters in common without duplicates: ' + count;
+};
 
 diff2('coffee', 'fate') // 2
 diff2('hello', 'haisjfllallkfj') // 3

@@ -14,9 +14,9 @@
 
 var asyncMap = function (tasks, callback) {
   //  create a result variable to pass into the callback last
-  var result = []
+  var result = [];
   // count each task
-  var counter = 0
+  var counter = 0;
 
   //  loop through the tasks array
   for (var i = 0; i < tasks.length; i++) {

@@ -7,7 +7,7 @@ const fibonacci = (n) => {
 	}
   let x = 0
   let y = 1
-  addition = 1
+  let addition = 1
   for (let i = 2; i <= n; i++) {
     addition = x + y
     x = y
@@ -27,3 +27,4 @@ const fibonacciRecursive = (n) => {
     return fibonacciRecursive(n-1) + fibonacciRecursive(n-2)
   }
 }
+

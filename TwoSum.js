@@ -5,6 +5,7 @@
  * @param {number} target
  * @return {number[]}
  */
+ 
 'use strict';
 var twoSum = function(nums, target) {
   let map = {};

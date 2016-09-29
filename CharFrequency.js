@@ -16,7 +16,7 @@ function characterFrequency (string) {
   var obj1 = {};
   var result = [];
   if (string.length === 0) {
-    return []
+    return [];
   }
 
   // convert the string into object pairs with occurance value

@@ -20,7 +20,6 @@ function compose () {
   };
 }
 
-
 function pipe () {
   var arg = Array.prototype.slice.call(arguments);
   return function (x) {

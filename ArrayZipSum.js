@@ -24,7 +24,7 @@
 
 function zipSum (xs, ys) {
   // Make result array
-  var result = []
+  var result = [];
   // loop using the length of the longer array
   for (var i = 0; i < (xs.length > ys.length ? ys.length : xs.length); i++) {
     // push the sum of to our array
