@@ -15,6 +15,10 @@ const testCompare = () => {
   expect(
     compare('hello', 'elloh')
   ).toEqual('PERMUTATION');
+
+  expect(
+    compare('dog', 'dagsso')
+  ).toEqual('NOT PERMUTATION');
 };
 
 testCompare();
