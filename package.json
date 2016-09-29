@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Javascript Fun",
   "main": "AlternatingCharacters.js",
-  "dependencies": {},
+  "dependencies": {
+    "expect": "^1.20.2"
+  },
   "devDependencies": {
     "eslint": "^3.1.1",
     "eslint-config-airbnb": "^9.0.1",

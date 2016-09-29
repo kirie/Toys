@@ -1,7 +1,7 @@
 // Compare two strings to see if they are a permutation of another.
 // Strings must be same length, no substrings.
 'use strict';
-
+const expect = require('expect');
 
 const compare = (str1, str2) => {
   let obj = {};
@@ -11,5 +11,11 @@ const compare = (str1, str2) => {
   return (result === 0 ? 'PERMUTATION' : 'NOT PERMUTATION');
 };
 
-let test = compare('hello', 'lloeh');
-console.log(test); // PERMUTATION
+const testCompare = () => {
+  expect(
+    compare('hello', 'elloh')
+  ).toEqual('PERMUTATION');
+};
+
+testCompare();
+console.log('All tests passed');
