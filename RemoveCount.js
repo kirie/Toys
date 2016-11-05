@@ -6,17 +6,24 @@
 
 const expect = require('expect');
 
-const remove = (arr, target) => {
-  //sort array before filtering to possibly improve performance.
 
-  return arr.sort((a,b) => {return a - b}).slice(arr.indexOf(target)).filter((v) => { return v === target}).length
+// 1
+const removeElements = (arr, target) => {
+  return arr.filter(v => v !== target).length
 };
 
-const testRemove = () => {
+const testRemoveElements = () => {
   expect(
-    remove([2,22,2,99,1,3,3,3,3], 3)
-  ).toEqual(4);
+    removeElements([2,22,2,99,1,3,3,3,3], 3)
+  ).toEqual(5);
+  expect(
+    removeElements([1], 1)
+  ).toEqual(0)
+  expect(
+    removeElements([3,2,2,3], 3)
+  ).toEqual(2)
 };
 
-testRemove();
+testRemoveElements();
+
 console.log('All tests passed');
