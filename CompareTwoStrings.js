@@ -1,6 +1,7 @@
 // Compare two strings to see if they are a permutation of another.
 // Strings must be same length, no substrings.
 'use strict';
+
 const expect = require('expect');
 
 const compare = (str1, str2) => {
