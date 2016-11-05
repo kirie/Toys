@@ -9,7 +9,7 @@ const expect = require('expect');
 const remove = (arr, target) => {
   //sort array before filtering to possibly improve performance.
 
-  return arr.sort((a,b) => {return a - b}).splice(arr.indexOf(target)).filter((v) => { return v === target}).length
+  return arr.sort((a,b) => {return a - b}).slice(arr.indexOf(target)).filter((v) => { return v === target}).length
 };
 
 const testRemove = () => {
