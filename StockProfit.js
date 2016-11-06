@@ -6,7 +6,6 @@
 const expect = require('expect');
 
 const stock = (arr) => {
-
   // initial variables
   let minPrice = arr[0];
   let maxProfit = 0;
