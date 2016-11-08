@@ -10,17 +10,21 @@ const expect = require('expect');
 const otherProduct = (arr) => {
   let product = 1;
   let arrtemp = [];
-  
+
+  // initial loop for all values without the index
   arr.forEach((v,i) => {
     arrtemp[i] = product;
     product *= v;
   });
-  
+
+  // second loop to find the product of all others after the index
+  // store back in our temporary array
   product = 1;
   for(let i = arr.length - 1; i >= 0; i--) {
     arrtemp[i] *= product;
     product *= arr[i];
   }
+
   return arrtemp;
 };
 
