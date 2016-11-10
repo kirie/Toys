@@ -1,3 +1,13 @@
+// Build an in-flight entertainment system that allows users to 
+// know(with a returned boolean) whether there are 2 movies that exactly
+// fit into the full flight length.  
+
+// Constraint: O(n)
+
+// Example: Given an array of 3 movies [60, 120, 80] and a 200 min
+//          flight, it should return a boolean of true. Since 120+80
+//          is 200 min.  
+
 'use strict';
 const expect = require('expect');
 
@@ -11,7 +21,6 @@ const movieFlight = (movie_arr, flight_length) => {
     return true;
   });
 };
-
 
 const testFunction = () => {
   expect(
