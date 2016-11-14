@@ -1,3 +1,8 @@
+// Create a Stack class and use it to implement another class that finds 
+// the largest value in a stack.
+
+// Constraints: Time complexity of O(1)
+
 'use strict';
 const expect = require('expect');
 
@@ -5,7 +10,7 @@ const regularStack = function() {
   this.storage = [];
   this.count = 0;
   
-  this.push = function(val) {
+  this.push = (val) => {
     this.storage[this.count] = val;
     this.count++;
   };
@@ -30,7 +35,7 @@ const regularStack = function() {
   };
 };
 
-const maxStack = function(){
+const maxStack = function() {
   
   this.firstStorage = new regularStack();
   this.maxStorage = new regularStack();
