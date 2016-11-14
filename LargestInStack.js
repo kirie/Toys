@@ -1,0 +1,72 @@
+'use strict';
+const expect = require('expect');
+
+const regularStack = function() {
+  this.storage = [];
+  this.count = 0;
+  
+  this.push = function(val) {
+    this.storage[this.count] = val;
+    this.count++;
+  };
+
+  this.pop = () => {
+    let popped = this.storage.splice(this.count-1)[0];
+    this.count--;
+    return popped;
+  };
+
+  this.size = () => {
+    return this.storage.length;
+  };
+
+  this.peek = () => {
+    if(this.storage[this.count-1]){
+      return this.storage[this.count-1];
+    }
+    else{
+      return false;
+    }
+  };
+};
+
+const maxStack = function(){
+  
+  this.firstStorage = new regularStack();
+  this.maxStorage = new regularStack();
+
+  this.push = (val) => {
+    this.firstStorage.push(val);
+    if(val > this.maxStorage.peek()) {
+      this.maxStorage.push(val);
+    }
+  };
+
+  this.pop = () => {
+    let x = this.firstStorage.pop();
+    if(x === this.maxStorage.peek()){
+      this.maxStorage.pop();
+    }
+    return x;
+  };
+  
+  this.getMax = () => {
+    return this.maxStorage.peek();
+  };
+
+};
+
+const testFunction = () => {
+  let test1 = new maxStack();
+  test1.push(50);
+  test1.push(53);
+  test1.push(32);
+  test1.push(999999);
+  test1.pop();
+  expect(
+    test1.getMax()
+  ).toEqual(53);
+};
+
+testFunction();
+console.log('All tests passed');

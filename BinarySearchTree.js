@@ -1,12 +1,12 @@
 'use strict';
 
 let BST = function (val) {
-  let BinaryTree = Object.create(BinarySearchTreeMethods)
-  BinaryTree.value = val
-  BinaryTree.left = null
-  BinaryTree.right = null
-  return BinaryTree
-}
+  let BinaryTree = Object.create(BinarySearchTreeMethods);
+  BinaryTree.value = val;
+  BinaryTree.left = null;
+  BinaryTree.right = null;
+  return BinaryTree;
+};
 
 let BinarySearchTreeMethods = {}
 
