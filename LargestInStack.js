@@ -37,7 +37,6 @@ const regularStack = function() {
 };
 
 const maxStack = function() {
-  
   this.firstStorage = new regularStack();
   this.maxStorage = new regularStack();
 

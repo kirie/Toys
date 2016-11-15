@@ -4,17 +4,30 @@
 
 // Example:
 // Input: const x = '5\nAAAA\nBBBBB\nABABABAB\nBABABA\nAAABBB'
-// Output: 4\n3\n0\n0\n4
+// Output: 3\n4\n0\n0\n4
 
-function processData (input) {
-  let arr1 = input.split('\n').splice(1)
-  for (let i = 0; i < arr1.length; i++) {
-    let count = 0
-    let last = arr1[i][0]
-      for (let j = 1; j < arr1[i].length; j++) {
-        last === arr1[i][j] ? count++ : last = arr1[i][j]
-        }
-      }
-    console.log(count)
-  }
+const expect = require('expect');
+
+function processData(input) {
+  let output = '';
+  const given = input.split('\n').splice(1);
+  given.forEach((v) => {
+    let count = 0;
+    let last = v[0];
+    for (let j = 1; j < v.length; j++) {
+      last === v[j] ? count++ : last = v[j];
+    }
+    output = `${output}${count}\n`;
+    console.log(count);
+  });
+  return output;
 }
+
+const testRemoveElements = () => {
+  expect(
+    processData('5\nAAAA\nBBBBB\nABABABAB\nBABABA\nAAABBB')
+  ).toEqual('3\n4\n0\n0\n4\n');
+};
+
+testRemoveElements();
+console.log('All tests passed');

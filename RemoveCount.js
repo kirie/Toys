@@ -6,10 +6,9 @@
 
 const expect = require('expect');
 
-
 // 1
 const removeElements = (arr, target) => {
-  return arr.filter(v => v !== target).length
+  return arr.filter(v => v !== target).length;
 };
 
 const testRemoveElements = () => {
@@ -18,10 +17,10 @@ const testRemoveElements = () => {
   ).toEqual(5);
   expect(
     removeElements([1], 1)
-  ).toEqual(0)
+  ).toEqual(0);
   expect(
     removeElements([3,2,2,3], 3)
-  ).toEqual(2)
+  ).toEqual(2);
 };
 
 testRemoveElements();
