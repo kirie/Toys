@@ -7,22 +7,23 @@
 const expect = require('expect');
 
 const regularStack = function() {
-  this.storage = [];
+  this.storage = {};
   this.count = 0;
-  
+
   this.push = (val) => {
     this.storage[this.count] = val;
     this.count++;
   };
 
   this.pop = () => {
-    let popped = this.storage.splice(this.count-1)[0];
+    let popped = this.storage[this.count-1];
+    delete this.storage[this.count-1];
     this.count--;
     return popped;
   };
 
   this.size = () => {
-    return this.storage.length;
+    return Object.keys(this.storage).length;
   };
 
   this.peek = () => {
@@ -48,11 +49,11 @@ const maxStack = function() {
   };
 
   this.pop = () => {
-    let x = this.firstStorage.pop();
-    if(x === this.maxStorage.peek()){
+    let popped = this.firstStorage.pop();
+    if(popped === this.maxStorage.peek()){
       this.maxStorage.pop();
     }
-    return x;
+    return popped;
   };
   
   this.getMax = () => {
