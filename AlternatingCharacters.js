@@ -11,6 +11,7 @@ const expect = require('expect');
 function processData(input) {
   let output = '';
   const given = input.split('\n').splice(1);
+
   given.forEach((v) => {
     let count = 0;
     let last = v[0];
@@ -18,10 +19,13 @@ function processData(input) {
       last === v[j] ? count++ : last = v[j];
     }
     output = `${output}${count}\n`;
-    console.log(count);
   });
   return output;
 }
+
+
+// Test
+
 
 const testRemoveElements = () => {
   expect(

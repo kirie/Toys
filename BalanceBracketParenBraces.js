@@ -2,7 +2,7 @@
 // Such that:
 // '( ) [ ] { }' = true
 // '[ { ] }' = false
-'use strict';
+
 const expect = require('expect');
 
 const match = {
@@ -11,9 +11,9 @@ const match = {
   '{': '}'
 };
 
-function balance (string) {
+function balance(string) {
 	//  create a variable to hold our stack
-  let result = [];
+  const result = [];
   //  loop through the string and see if the char is an open or closed
   for (let i = 0; i < string.length; i++) {
     if (string[i] === '(' || string[i] === '[' || string[i] === '{') {
@@ -21,9 +21,7 @@ function balance (string) {
     }
     if (string[i] === ')' || string[i] === ']' || string[i] === '}') {
       // if the char is a closing one, pop off the stack and check if it maches
-      let popped = result.pop();
-      console.log(popped);
-      console.log(string[i]);
+      const popped = result.pop();
       // if the char doesn't match up with the match object then we know it's false
       if (string[i] !== match[popped]) {
         return false;
@@ -34,6 +32,10 @@ function balance (string) {
   return true;
 }
 
+
+// Test
+
+
 const testBalance = () => {
   expect(
     balance('[ { ] }')
@@ -41,7 +43,7 @@ const testBalance = () => {
 
   expect(
     balance('{[ [] ] }')
-  ).toEqual(true);  
+  ).toEqual(true);
 };
 
 testBalance();

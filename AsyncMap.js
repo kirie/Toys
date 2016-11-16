@@ -12,25 +12,34 @@
 // Once all the callbacks of the tasks are returned, asyncMap should invoke the callback
 // on the results array.
 
-var asyncMap = function (tasks, callback) {
-  //  create a result variable to pass into the callback last
-  var result = [];
-  // count each task
-  var counter = 0;
+const asyncMap = (tasks, callback) => {
+  const result = [];
+  let counter = 0;
+  tasks.forEach((v, i) => {
+    v((value) => {
+      result[i] = value;
+      counter++;
+      if (counter === tasks.length) {
+        callback(result);
+      }
+    });
+  });
+};
 
-  //  loop through the tasks array
-  for (var i = 0; i < tasks.length; i++) {
-    //  Wrap as IIFE for each iteration to keep i
-    (function (i) {
-      // for each task add the value to the results array
-      tasks[i](function (value) {
-        result[i] = value
-        counter++
-        // when the counter is equal to the number of tasks, then run the callback
-        if (counter === tasks.length) {
-          callback(result)
-        }
-      })
-    })(i)
-  }
+const asyncMap2 = (tasks, callback) => {
+  const results = [];
+  tasks.forEach((v) => results.push(new Promise(v)));
+  Promise.all(results)
+    .then(value => callback(value));
+};
+
+
+function test1(cb) {
+  cb('hello');
 }
+
+function test2(cb) {
+  cb('world');
+}
+
+asyncMap([test1, test2], (val) => console.log(val)); // logs: ['hello', 'world']
