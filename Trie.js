@@ -1,4 +1,5 @@
 // Trie Class.  Prototypal Pattern
+// Methods: add, search, display
 
 const expect = require('expect');
 
@@ -21,6 +22,18 @@ trieMethods.add = function add(str) {
   current.$ = null;
 };
 
+trieMethods.search = function search(term) {
+  let current = this.root;
+  const term2 = `${term}$`;
+  for (let i = 0; i < term2.length; i++) {
+    if (!(term2[i] in current)) {
+      return false;
+    }
+    current = current[term2[i]];
+  }
+  return true;
+};
+
 trieMethods.display = function display() {
   return this.root;
 };
@@ -33,9 +46,18 @@ const testFunction = () => {
   const testTrie = trieClass();
   testTrie.add('apple');
   testTrie.add('apply');
+
   expect(
     testTrie.display()
   ).toEqual({ a: { p: { p: { l: { e: { $: null }, y: { $: null } } } } } });
+
+  expect(
+    testTrie.search('apple')
+  ).toEqual(true);
+
+  expect(
+    testTrie.search('apples')
+  ).toEqual(false);
 };
 
 testFunction();
