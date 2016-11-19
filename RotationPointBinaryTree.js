@@ -18,6 +18,10 @@ function rotationPoint(words) {
       ceiling = mid;
     }
     if (floor + 1 === ceiling) {
+      // converged and last element is not the start
+      if (words[ceiling].localeCompare(first) > 0) {
+        return 0;
+      }
       return ceiling;
     }
   }
@@ -31,6 +35,9 @@ const testFunction = () => {
   expect(
     rotationPoint(['dog', 'hippomoztimus', 'mammoth', 'parrot', 'zebra', 'ant', 'cat'])
   ).toEqual(5);
+  expect(
+    rotationPoint(['apple', 'banana', 'mango', 'pineapple', 'watermelon'])
+  ).toEqual(0);
 };
 
 testFunction();
