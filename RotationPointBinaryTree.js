@@ -1,4 +1,7 @@
-//
+// Find the starting index of an array of sorted words.
+// Use a Binary Tree implementation
+
+// Constraints: O(log(n))
 
 const expect = require('expect');
 
@@ -32,5 +35,3 @@ const testFunction = () => {
 
 testFunction();
 console.log('All tests passed');
-
-
