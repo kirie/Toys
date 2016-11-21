@@ -99,3 +99,5 @@ const testBST = () => {
 
 testBST();
 console.log('All tests passed');
+
+module.exports = BST;

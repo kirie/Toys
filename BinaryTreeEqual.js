@@ -24,13 +24,13 @@ function twoEqualBST(bst1, bst2) {
 // Test
 
 
-let Btree1 = new BinaryTree(3);
+const Btree1 = new BinaryTree(3);
 Btree1.insert(4);
 
-let Btree2 = new BinaryTree(3);
+const Btree2 = new BinaryTree(3);
 Btree2.insert(4);
 
-let Btree3 = new BinaryTree(3);
+const Btree3 = new BinaryTree(3);
 Btree3.insert(9);
 
 const testFunction = () => {
