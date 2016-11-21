@@ -1,3 +1,7 @@
+// Given two Binary Trees, see if the two trees are equal to each other.
+// They are equal if and only if tree1 -> child === tree2 -> child,
+// A tree's left and right children can be swapped with each other and still be equal
+
 const expect = require('expect');
 const BinaryTree = require('./BinarySearchTree');
 
