@@ -1,4 +1,5 @@
-const expect = require('expect');
+// Create a memoize function that accepts a function and returns
+// values that have been seen before.
 
 function memoize(func) {
   const called = {};
@@ -22,10 +23,10 @@ function fibonacci(num) {
 
 const testFib = memoize(fibonacci);
 
-console.time('first run');
+console.time('First run');
 testFib(30);
-console.timeEnd('first run');
+console.timeEnd('First run');
 
-console.time('memoized call');
+console.time('Memoized call');
 testFib(30);
-console.timeEnd('memoized call');
+console.timeEnd('Memoized call');
