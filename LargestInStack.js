@@ -54,7 +54,7 @@ const maxStack = function() {
     }
     return popped;
   };
-  
+
   this.getMax = () => {
     return this.maxStorage.peek();
   };
