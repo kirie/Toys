@@ -1,4 +1,4 @@
-// JS Gotchas collection w/ sources 
+// JS Gotchas collection
 // Answers at the bottom:
 
 // 1  What is the output of line 9
@@ -61,11 +61,38 @@ console.log(foo1());
 console.log(foo2());
 
 
-// 6
+// 6  What will be the output?
+for (var i = 0; i < 5; i++) {
+  setTimeout(() => {console.log(i)}, i * 1000 );
+}
 
 
+// 7 What is the output of line 77?
+var a={},
+    b={key:'b'},
+    c={key:'c'};
 
-/** 
+a[b]=123;
+a[c]=456;
+
+console.log(a[b]);
+
+
+// 8
+
+console.log(1 +  "2" + "2");
+console.log(1 +  +"2" + "2");
+console.log(1 +  -"1" + "2");
+console.log(+"1" +  "1" + "2");
+console.log( "A" - "B" + "2");
+console.log( "A" - "B" + 2);
+
+// 9 
+
+console.log(typeof null);
+
+
+/**
 
 ANSWERS
 
@@ -77,8 +104,15 @@ ANSWERS
   the this context of test is global
 4.) console.log(test.call(obj.prop))
 5.) {bar: 'hello'} and undefined
-  A semicolon is automatically inserted on the return of line 55.  
+  A semicolon is automatically inserted on the return of line 55.
+6.) 5, 5, 5, 5, 5
+  Closure.  the function console.log(i) will retain access to i, which will end at 5.
+7.) 456
+  Javascript will stringify the object to a key value of [object Object].
+8.) 122, 32, 02, 112, NaN2, NaN
+9.) Object
 **/
 
 // Sources:
 // https://www.sitepoint.com/5-typical-javascript-interview-exercises/
+// https://www.toptal.com/javascript/interview-questions
