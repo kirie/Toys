@@ -91,8 +91,56 @@ console.log( "A" - "B" + 2);
 
 console.log(typeof null);
 
+// 10
+
+function bar() {
+    return foo;
+    foo = 10;
+    function foo() {}
+    var foo = '11';
+}
+console.log((typeof bar()))
+
+// 11
+
+console.log([] + [] + 'foo'.split(''));
+
+// 12
+
+var x = 0;
+function foo() {
+    x++;
+    this.x = x;
+    return foo;
+}
+var bar = new foo;
+console.log(bar.x);
+
+
+// 13
+
+var arr = [];
+arr[0]  = 'a';
+arr[1]  = 'b';
+arr.foo = 'c';
+console.log(arr.length)
+
+// 14
+
+console.log(10 > 9 > 8 === true);
+
+// 15
+function foo(a, b) {
+    arguments[1] = 2;
+    return(b);
+}
+console.log(foo(1));
+
+// 16
+console.log(NaN === NaN)
 
 /**
+
 
 ANSWERS
 
@@ -111,6 +159,15 @@ ANSWERS
   Javascript will stringify the object to a key value of [object Object].
 8.) 122, 32, 02, 112, NaN2, NaN
 9.) Object
+10.) Function.
+  Hoisting:Functions have precedence over variables
+11.) 'f', 'o', 'o'
+12.)  undefined
+13.)  2
+14.) false
+  true > 8 is false
+15.) undefined
+16.) false
 **/
 
 // Sources:
