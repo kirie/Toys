@@ -137,7 +137,7 @@ function foo(a, b) {
 console.log(foo(1));
 
 // 16
-console.log(NaN === NaN)
+console.log(NaN === NaN);
 
 /**
 
@@ -173,3 +173,4 @@ ANSWERS
 // Sources:
 // https://www.sitepoint.com/5-typical-javascript-interview-exercises/
 // https://www.toptal.com/javascript/interview-questions
+// http://davidshariff.com/js-quiz/
