@@ -15,7 +15,7 @@ const stock = (arr) => {
     minPrice = Math.min(minPrice, current);
     maxProfit = Math.max(maxProfit, current - minPrice);
   });
-
+  
   return maxProfit;
 };
 

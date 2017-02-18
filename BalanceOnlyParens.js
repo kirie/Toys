@@ -17,7 +17,7 @@ function balanceOnlyParens(str) {
     return p;
   }, 0);
 }
-
+console.log(balanceOnlyParens('(()'));
 const testBalanceParens = () => {
   expect(
     balanceOnlyParens('(())')

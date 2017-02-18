@@ -1,4 +1,4 @@
-function spiralTraversal (matrix) {
+ function spiralTraversal (matrix) {
   let result = []
   let top = 0
   let bottom = matrix.length - 1
