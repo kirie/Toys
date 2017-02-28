@@ -6,7 +6,7 @@
 const expect = require('expect');
 
 function queenThreatensKing(qX, qY, kX, kY) {
-  if (Array(...arguments).every(x => Number.isInteger(x)) && arguments.length === 4) {
+  if (Array(...arguments).every(x => Number.isInteger(x) && x > 0) && arguments.length === 4) {
     return qX === kX || qY === kY || Math.abs(qX - kX) === Math.abs(qY - kY);
   }
   return 'Error';
