@@ -29,7 +29,9 @@ const testFormatCurrency = () => {
   expect(
     formatCurrency(298423880.035339, true)
   ).toEqual('298,423,880.04');
-
+  expect(
+    formatCurrency(8.32, true)
+  ).toEqual('8.32');
   expect(
     formatCurrency(98423880.0329, false)
   ).toEqual('98.423.880,03');
@@ -37,4 +39,3 @@ const testFormatCurrency = () => {
 
 testFormatCurrency();
 console.log('All tests passed');
-
