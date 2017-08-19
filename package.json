@@ -4,7 +4,8 @@
   "description": "Javascript Fun",
   "main": "AlternatingCharacters.js",
   "dependencies": {
-    "expect": "^1.20.2"
+    "expect": "^1.20.2",
+    "isomorphic-fetch": "^2.2.1"
   },
   "devDependencies": {
     "eslint": "^3.1.1",
