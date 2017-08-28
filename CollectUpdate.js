@@ -15,7 +15,7 @@ function someCollection() {
 }
 
 function tester (prevVal, newVal) {
-  console.log(prevVal, 'to' ,newVal);
+  console.log(prevVal, 'to', newVal);
 }
 
 const x = someCollection('a');
@@ -24,4 +24,4 @@ x('hey');
 x('hi');
 x();
 x.updateFunc(tester);
-x('hello');  //hi to hello
+x('hello');  // hi to hello
