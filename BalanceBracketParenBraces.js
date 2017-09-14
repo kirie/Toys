@@ -5,45 +5,42 @@
 
 const expect = require('expect');
 
-const match = {
-  '(': ')',
-  '[': ']',
-  '{': '}'
-};
-
-function balance(string) {
-	//  create a variable to hold our stack
-  const result = [];
-  //  loop through the string and see if the char is an open or closed
-  for (let i = 0; i < string.length; i++) {
-    if (string[i] === '(' || string[i] === '[' || string[i] === '{') {
-      result.push(string[i]);
-    }
-    if (string[i] === ')' || string[i] === ']' || string[i] === '}') {
-      // if the char is a closing one, pop off the stack and check if it maches
-      const popped = result.pop();
-      // if the char doesn't match up with the match object then we know it's false
-      if (string[i] !== match[popped]) {
-        return false;
+function balance(values) {
+  const diffy = {
+    '(': ')',
+    '{': '}',
+    '[': ']'
+  };
+  return values.map((eachString) => {
+    let result = [];
+    let final = ''
+    eachString.split('').forEach((v) => {
+      if(v === '(' || v === '{' || v === '['){
+        result.push(v);
       }
+      if(v === ')' || v === '}' || v === ']'){
+        if(diffy[result[result.length - 1]] === v){
+          result.pop();
+        }
+      }
+    })
+    if(result.length > 0){
+      return false
     }
-  }
-  // else return true
-  return true;
+    return true
+  }).join('\n')
 }
-
 
 // Test
 
-
 const testBalance = () => {
   expect(
-    balance('[ { ] }')
-  ).toEqual(false);
+    balance(['[ { }'])
+  ).toEqual('false');
 
   expect(
-    balance('{[ [] ] }')
-  ).toEqual(true);
+    balance(['{[ [] ] }'])
+  ).toEqual('true');
 };
 
 testBalance();
