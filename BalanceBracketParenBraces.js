@@ -11,32 +11,32 @@ function balance(values) {
     '{': '}',
     '[': ']'
   };
+
   return values.map((eachString) => {
-    let result = [];
-    let final = ''
+    const result = [];
     eachString.split('').forEach((v) => {
-      if(v === '(' || v === '{' || v === '['){
+      if (v === '(' || v === '{' || v === '[') {
         result.push(v);
       }
-      if(v === ')' || v === '}' || v === ']'){
-        if(diffy[result[result.length - 1]] === v){
+      if (v === ')' || v === '}' || v === ']') {
+        if (diffy[result[result.length - 1]] === v) {
           result.pop();
         }
       }
-    })
-    if(result.length > 0){
-      return false
+    });
+    if (result.length > 0) {
+      return false;
     }
-    return true
-  }).join('\n')
+    return true;
+  }).join('\n');
 }
 
 // Test
 
 const testBalance = () => {
   expect(
-    balance(['[ { }'])
-  ).toEqual('false');
+    balance(['[ { }', '[]'])
+  ).toEqual('false\ntrue');
 
   expect(
     balance(['{[ [] ] }'])
