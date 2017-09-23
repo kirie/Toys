@@ -1,118 +1,152 @@
 const expect = require('expect');
 
 class BinaryTree {
-  constructor(options) {
-    this.value = options;
-    this.left = null;
-    this.right = null;
+
+  constructor() {
+    this.root = null;
   }
 
   display() {
-    return this;
+    return this.root;
+  }
+
+  contains(root, val) {
+    if (val === root.value) {
+      return true;
+    }
+    else if (root.value < val) {
+      if (root.right) {
+        return this.contains(root.right, val);
+      }
+      return false;
+    }
+    else if (root.value > val) {
+      if (root.left) {
+        return this.contains(root.left, val);
+      }
+      return false;
+    }
   }
 
   insert(val) {
-    if (this.value > val) {
-      if (this.left) {
-        this.left.insert(val);
-      }
-      else {
-        this.left = new BinaryTree(val);
-      }
-    }
-    else if (this.value < val) {
-      if (this.right) {
-        this.right.insert(val);
-      }
-      else {
-        this.right = new BinaryTree(val);
-      }
+    const node = {
+      value: val,
+      left: null,
+      right: null
+    };
+
+    let currentNode;
+    if (!this.root) {
+      this.root = node;
     }
     else {
-      console.log('Could not insert value.  Value could already exist');
-    }
-  }
-
-  contains(val) {
-    if (val === this.value) {
-      return true;
-    }
-    else if (this.value > val) {
-      if (this.left) {
-        return this.left.contains(val);
-      }
-      else {
-        return false;
-      }
-    }
-    else if (this.value < val) {
-      if (this.right) {
-        return this.right.contains(val);
-      }
-      else {
-        return false;
-      }
-    }
-  }
-
-  invert(node) {
-    if (node) {
-      const left = node.left ? node.left : null;
-      const right = node.right ? node.right : null;
-      node.left = node.invert(right);
-      node.right = node.invert(left);
-    }
-    return node;
-  }
-
-  max(node) {
-    if (!node) {
-      return false;
-    }
-    if (node.right) {
-      return this.max(node.right);
-    }
-    return node.value;
-  }
-
-  min(node) {
-    if (!node) {
-      return false;
-    }
-    if (node.left) {
-      return this.min(node.left);
-    }
-    return node.value;
-  }
-
-  dfs(node) {
-    const result = [];
-    function traverse(currentNode) {
-      if (currentNode) {
-        result.push(currentNode.value);
-        traverse(currentNode.left);
-        traverse(currentNode.right);
+      currentNode = this.root;
+      while (currentNode) {
+        if (currentNode.value > val) {
+          if (!currentNode.left) {
+            currentNode.left = node;
+            break;
+          }
+          else {
+            currentNode = currentNode.left;
+          }
+        }
+        else if (currentNode.value < val) {
+          if (!currentNode.right) {
+            currentNode.right = node;
+            break;
+          }
+          else {
+            currentNode = currentNode.right;
+          }
+        }
+        else {
+          console.log('This value could not be inserted! :(');
+        }
       }
     }
-    traverse(node);
-    return result;
   }
 
-  bfs(node) {
-    const queue = [node];
-    const result = [];
-    while (node = queue.shift()) {
-      result.push(node.value);
-      node.left && queue.push(node.left);
-      node.right && queue.push(node.right);
+  min(root) {
+    if (!root) {
+      return null;
     }
-    return result;
+    if (root.left) {
+      return this.min(root.left);
+    }
+    return root.value;
   }
 
+  max(root) {
+    if (!root) {
+      return null;
+    }
+    if (root.right) {
+      return this.max(root.right);
+    }
+    return root.value;
+  }
+
+  // Traversals
+  preorderT(root, cb) {
+    cb(root.value);
+    if (root.left) {
+      this.preorderT(root.left, cb);
+    }
+    if (root.right) {
+      this.preorderT(root.right, cb);
+    }
+  }
+
+  inorderT(root, cb) {
+    if (root.left) {
+      this.inorderT(root.left, cb);
+    }
+    cb(root.value);
+    if (root.right) {
+      this.inorderT(root.right, cb);
+    }
+  }
+
+  postorderT(root, cb) {
+    if (root.left) {
+      this.postorderT(root.left, cb);
+    }
+    if (root.right) {
+      this.postorderT(root.right, cb);
+    }
+    cb(root.value);
+  }
+
+  breadthT(root, cb) {
+    const queue = [];
+    let temp;
+    queue.push(root);
+    while (queue.length) {
+      temp = queue.shift();
+      cb(temp.value);
+      if (temp.left) {
+        queue.push(temp.left);
+      }
+      if (temp.right) {
+        queue.push(temp.right);
+      }
+    }
+  }
+
+  invert(root){
+    if (root) {
+      const left = root.left ? root.left : null;
+      const right = root.right ? root.right : null;
+      root.left = this.invert(right);
+      root.right = this.invert(left);
+    }
+    return root;
+  }
 }
 
 const testBST = () => {
-  const theBST = new BinaryTree(5);
+  const theBST = new BinaryTree();
   theBST.insert(4);
   theBST.insert(8);
   theBST.insert(20);
@@ -121,32 +155,29 @@ const testBST = () => {
 
   expect(
     theBST.display().value
-  ).toEqual(5);
+  ).toEqual(4);
 
   expect(
-    theBST.contains(5)
+    theBST.contains(theBST.root, 20)
   ).toEqual(true);
 
   expect(
     theBST.display().left.value
-  ).toEqual(4);
+  ).toEqual(2);
 
   expect(
-    theBST.bfs(theBST)
-  ).toEqual([5, 4, 8, 2, 20, 30]);
-
-  expect(
-    theBST.dfs(theBST)
-  ).toEqual([5, 4, 2, 8, 20, 30]);
-
-  expect(
-    theBST.max(theBST)
+    theBST.max(theBST.root)
   ).toEqual(30);
 
   expect(
-    theBST.invert(theBST).left.value
+    theBST.invert(theBST.root).left.value
   ).toEqual(8);
+
+  theBST.preorderT(theBST.root, z => console.log(z));
+  theBST.inorderT(theBST.root, z => console.log(z));
+  theBST.postorderT(theBST.root, z => console.log(z));
+  theBST.breadthT(theBST.root, z => console.log(z));
 };
 
-testBST();
-console.log('All tests passed');
+testBST()
+console.log('All tests passed')
