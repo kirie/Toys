@@ -1,46 +1,49 @@
+// Write a function that finds the largest difference between an array of 
+// numbers where i < j and a[i] < a[j]
+
 const expect = require('expect');
 
-// Find the largest difference in an array (arr), between any a[i] and a[j] where i < j and a[i] < a[j]
-// example:
-// given: [4, 1, 2, 3], the largest difference would be a[3] - a[1] = 2
-
-const maxDifference = arr => {
-  let max = arr[0];
-  arr.forEach((v) => {
-    if (v > max) {
-      max = v;
+function maxDiff(a) {
+  const initialMax = Math.max(...a);
+  const arr = a.slice(0, a.indexOf(initialMax));
+  let maxdiff = initialMax - arr[0];
+  let min = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < min) {
+      min = arr[i];
     }
-  });
-  const index = arr.indexOf(max);
-  const left = arr.slice(0, index);
-  let min = max;
-  left.forEach((v) => {
-    if (v < min) {
-      min = v;
+    if (initialMax - min > maxdiff) {
+      maxdiff = initialMax - min;
     }
-  });
-  return min < max ? (max - min) : -1;
-};
+  }
+  return maxdiff || -1;
+}
 
 const testFunc = () => {
   expect(
-    maxDifference([930, 231, 4, 13, 22, 23])
+    maxDiff([930, 231, 4, 13, 22, 23])
   ).toEqual(-1);
   expect(
-    maxDifference([7, 9, 5, 6, 3, 2])
+    maxDiff([7, 9, 5, 6, 3, 2])
   ).toEqual(2);
   expect(
-    maxDifference([2, -3, 10, 2, 4, 20, 1])
+    maxDiff([2, -3, 10, 2, 4, 20, 1])
   ).toEqual(23);
   expect(
-    maxDifference([2, 3, 10, 2, 4, 8, 1])
+    maxDiff([2, 3, 10, 2, 4, 8, 1])
   ).toEqual(8);
   expect(
-    maxDifference([2, 3, 10, 2, 4, 8, 1000])
+    maxDiff([2, 3, 10, 2, 4, 8, 1000])
   ).toEqual(998);
   expect(
-    maxDifference([10])
+    maxDiff([10])
   ).toEqual(-1);
+  expect(
+    maxDiff([5, 2, 3, 10, -2, -40, -8, -1]))
+  .toEqual(8);
+  expect(
+    maxDiff([2, 3, 10, 2, 40, 8, 1]))
+  .toEqual(38);
 };
 
 testFunc();
