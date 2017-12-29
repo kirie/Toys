@@ -6,7 +6,9 @@ const expect = require('expect');
 
 function findDisappearedNum(arr) {
 
-  // Mark all all indicies as negative that have values that exist
+  // Subtract 1 from each value to corrolate that with the indicies of the array. 0 to n-1
+  // Mark any values that exist at the indicies as negative
+  // This way we know the indicies that do not exist
   arr.forEach((v, _, a) => {
     const index = Math.abs(v) - 1;
     if (a[index] > 0) {
