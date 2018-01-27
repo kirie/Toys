@@ -1,3 +1,5 @@
+// https://www.hackerrank.com/challenges/sherlock-and-array/problem
+
 'use strict';
 
 function processData(input) {

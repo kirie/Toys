@@ -1,3 +1,5 @@
+// https://www.hackerrank.com/challenges/countingsort1/problem
+
 'use strict';
 
 function processData(input) {
