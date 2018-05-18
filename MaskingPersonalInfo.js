@@ -1,3 +1,5 @@
+// Leetcode #831 https://leetcode.com/problems/masking-personal-information/description/
+
 const expect = require('expect')
 
 const mask = (str) => validateEmail(str) ? email(str) : phone(str)
@@ -23,7 +25,6 @@ function validateEmail(email) {
   return regx.test(String(email).toLowerCase())
 }
 
-
 const testMask = () => {
   expect(
     mask('abc@abc.com')
@@ -32,5 +33,7 @@ const testMask = () => {
     mask('2131234567')
   ).toEqual('***-***-4567')
 };
+
+testMask()
 
 console.log('All tests passed')
